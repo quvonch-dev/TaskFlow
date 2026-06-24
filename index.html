@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskFlow — Todo Manager</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">TaskFlow</span>
+      </div>
+
+      <nav class="filters">
+        <button class="filter-btn active" data-filter="all">
+          <span class="filter-icon">◈</span> Barchasi
+          <span class="filter-count" id="count-all">0</span>
+        </button>
+        <button class="filter-btn" data-filter="active">
+          <span class="filter-icon">◉</span> Faol
+          <span class="filter-count" id="count-active">0</span>
+        </button>
+        <button class="filter-btn" data-filter="completed">
+          <span class="filter-icon">◎</span> Bajarilgan
+          <span class="filter-count" id="count-completed">0</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-categories">
+        <p class="sidebar-label">Kategoriyalar</p>
+        <button class="cat-btn active" data-cat="all">Hammasi</button>
+        <button class="cat-btn" data-cat="work">💼 Ish</button>
+        <button class="cat-btn" data-cat="personal">🏠 Shaxsiy</button>
+        <button class="cat-btn" data-cat="health">💪 Salomatlik</button>
+        <button class="cat-btn" data-cat="learning">📚 O'rganish</button>
+      </div>
+
+      <div class="sidebar-footer">
+        <div class="progress-section">
+          <span class="progress-label">Bugungi maqsad</span>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <span class="progress-text" id="progress-text">0 / 0 bajarildi</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="main-header">
+        <div class="header-left">
+          <h1 class="page-title">Vazifalar</h1>
+          <span class="date-label" id="date-label"></span>
+        </div>
+        <div class="header-right">
+          <button class="clear-btn" id="clear-completed">Bajarilganlarni o'chirish</button>
+        </div>
+      </header>
+
+      <!-- Add Task -->
+      <div class="add-task-bar">
+        <div class="input-row">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Yangi vazifa qo'shing..."
+            maxlength="120"
+            autocomplete="off"
+          />
+          <button class="add-btn" id="add-btn">+</button>
+        </div>
+        <div class="task-meta">
+          <select id="priority-select" class="meta-select">
+            <option value="low">🟢 Past</option>
+            <option value="medium" selected>🟡 O'rta</option>
+            <option value="high">🔴 Yuqori</option>
+          </select>
+          <select id="category-select" class="meta-select">
+            <option value="work">💼 Ish</option>
+            <option value="personal">🏠 Shaxsiy</option>
+            <option value="health">💪 Salomatlik</option>
+            <option value="learning">📚 O'rganish</option>
+          </select>
+          <input type="date" id="due-date" class="meta-select" />
+        </div>
+      </div>
+
+      <!-- Task List -->
+      <div class="task-list" id="task-list">
+        <!-- Tasks injected by JS -->
+      </div>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="empty-state" style="display:none;">
+        <div class="empty-icon">✦</div>
+        <p class="empty-title">Vazifalar yo'q</p>
+        <p class="empty-sub">Yangi vazifa qo'shib boshlang</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
